@@ -18,5 +18,20 @@ resource "aws_instance" "jumphost" {
     Owner_Email = var.owner_email
     sshUser     = "ubuntu"
     region      = var.region
+    cflt_partition = var.cflt_partition
+    cflt_managed_by	= var.cflt_managed_by
+    cflt_managed_id	= var.cflt_managed_id
+    cflt_service      = var.cflt_service
+    cflt_environment  = var.cflt_environment
+    cflt_keep_until   = formatdate("YYYY-MM-DD", timeadd(timestamp(),"8766h"))
+  }
+
+  volume_tags = {
+    cflt_partition = var.cflt_partition
+    cflt_managed_by	= var.cflt_managed_by
+    cflt_managed_id	= var.cflt_managed_id
+    cflt_service      = var.cflt_service
+    cflt_environment  = var.cflt_environment
+    cflt_keep_until   = formatdate("YYYY-MM-DD", timeadd(timestamp(),"8766h"))
   }
 }
