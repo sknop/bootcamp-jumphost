@@ -10,7 +10,7 @@ variable "my-ip" {
 
 variable "jumphost-instance-type" {
   description = "AWS instance type used for jumphost instance"
-  default = "t3.micro"
+  default = "t3.small"
 }
 
 variable "external-security-group-name" {
